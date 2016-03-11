@@ -1,0 +1,21 @@
+{
+    "name": "tomaskadlec/symfony-test",
+    "type": "library",
+    "description": "A library for testing Symfony applications",
+    "keywords": ["unit test", "test", "phpunit"],
+    "license": "MIT",
+    "homepage": "https://ict.fit.cvut.cz/gitlab/symfony/library-unittest",
+    "authors": [
+        {
+          "name": "Tomas Kadlec",
+          "email": "kadleto2@fit.cvut.cz"
+        }
+    ],
+    "require": {
+        "symfony/symfony": ">=3,<4"
+    },
+    "autoload": {
+        "psr-0": { "Net\\TomasKadlec\\Test": "" }
+    },
+    "target-dir": "Net/TomasKadlec/Test"
+}
