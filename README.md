@@ -90,21 +90,18 @@ class MyTestCase extends ApplicationTestCase {
 }
 ```
 
-Fixtures
---------
+## Fixtures
 
 ``ApplicationTestCase`` adds support for loading fixtures into memory and allows to reference them by simple keys.
 A fixture is an object implementing a ``FixtureInterface``. Handling fixtures via the library is sufficient for 
 simple use cases. If your fixtures are more complicated and/or stored in database consider using ``doctrine/doctrine-fixtures-bundle``
 or ``nelmio/alice``.
 
-Preparing a fixture
-~~~~~~~~~~~~~~~~~~~
+### Preparing a fixture
 
 One has to implement aforementioned interface. Method ``load(ExecutorInterface $executor)`` is responsible for
 creating instances and registering them as references. Reference repository is shared amongst all instances
  of executors. An executor is passed into the method and can be used to
-
   * addReference($key, $object),
   * removeReference($key),
   * getReference($key).
@@ -112,17 +109,14 @@ creating instances and registering them as references. Reference repository is s
 Loading fixtures is done by ``ApplicationTestCase::loadFixtures(array $fixtures)``. ``$fixtures`` is an array of
 fully qualified class names that references to classes that implement ``FixtureInterface`` and shall be loaded.
 
-Using a fixture
-~~~~~~~~~~~~~~~
+### Using a fixture
 
 Fixture represents an expected object therefore it can be used directly. Retrieving fixtures is done using
 ``ApplicationTestCase::getFixtures()::getReference($key)``.
 
-Exceptions
-~~~~~~~~~~
+### Exceptions
 
 If an error occurs exception is thrown
-
   * ``ReferenceException`` - generic error,
   * ``ReferenceDoesNotExistException`` - key does not exist (get, remove),
   * ``ReferenceExistsException`` - key exists (add).
