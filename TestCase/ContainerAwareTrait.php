@@ -32,7 +32,6 @@ trait ContainerAwareTrait {
         // call all setUp* methods
         $reflector = new \ReflectionObject($this);
         $methods = $reflector->getMethods();
-        print_r($methods);
         foreach ($methods as $method) {
             if (!$method->isStatic() && preg_match('/^setUp.+/', $method->getName()))
                 $this->{$method->getName()}();
